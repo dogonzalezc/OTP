@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>VAK-VerifyAPIKey</Name>
+            </Step>
+            <Step>
+                <Name>AM-RemoveHeader</Name>
+            </Step>
+            <Step>
+                <Name>KVM-PrivateKey</Name>
+            </Step>
+            <Step>
+                <Name>GJWT-OTP</Name>
+            </Step>
+        </Request>
+        <Response>
+        </Response>
+    </PreFlow>
+    <Flows>
+        <Flow name="postAuthPwd">
+            <Description>Autenticacion de usuario</Description>
+            <Request>
+                <Step>
+                    <Name>JX-AuthReq</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>XJ-AuthRes</Name>
+                </Step>
+                <Step>
+                    <Name>JS-DelJSONElementsAuth</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/auth/pwd") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="postDevices">
+            <Description>Crea dispoistivo</Description>
+            <Request>
+                <Step>
+                    <Name>JS-DevicesReq</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>XJ-DevicesRes</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/devices") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="postUsers">
+            <Description>Crea usuario</Description>
+            <Request>
+                <Step>
+                    <Name>JX-CreaUsersReq</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>XJ-CreaUsersRes</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/users") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="postOtpReq">
+            <Description>Crea otp</Description>
+            <Request>
+                <Step>
+                    <Name>JX-OtpReq</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/otps") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="postTokens">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>JX-TokenReq</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/tokens/*") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="getUsers">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="postAuthOtp">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/auth/otp") and (request.verb = "POST")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/otp/v1</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

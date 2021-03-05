@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<XMLToJSON async="false" continueOnError="false" enabled="true" name="XJ-DevicesRes">
+    <DisplayName>XJ-DevicesRes</DisplayName>
+    <Properties/>
+    <OutputVariable>response</OutputVariable>
+    <Source>response</Source>
+    <Options>
+        <NullValue>NULL</NullValue>
+        <StripLevels>1</StripLevels>
+    </Options>
+</XMLToJSON>

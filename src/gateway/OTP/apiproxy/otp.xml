@@ -1,0 +1,33 @@
+<APIProxy revision="25" name="otp">
+    <DisplayName>otp</DisplayName>
+    <Description>API de OTP</Description>
+    <CreatedAt>1614876811495</CreatedAt>
+    <LastModifiedAt>1614913774577</LastModifiedAt>
+    <BasePaths>/otp/v1</BasePaths>
+    <Policies>
+        <Policy>JX-AuthReq</Policy>
+        <Policy>JX-TokenReq</Policy>
+        <Policy>XJ-AuthRes</Policy>
+        <Policy>VAK-VerifyAPIKey</Policy>
+        <Policy>AM-RemoveHeader</Policy>
+        <Policy>JS-DelJSONElementsAuth</Policy>
+        <Policy>JS-DevicesReq</Policy>
+        <Policy>XJ-DevicesRes</Policy>
+        <Policy>JX-CreaUsersReq</Policy>
+        <Policy>XJ-CreaUsersRes</Policy>
+        <Policy>JX-OtpReq</Policy>
+        <Policy>EV-SearchUser</Policy>
+        <Policy>GJWT-OTP</Policy>
+        <Policy>KVM-PrivateKey</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://BorraElementoAuth.js</Resource>
+    </Resources>
+    <TargetServers></TargetServers>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

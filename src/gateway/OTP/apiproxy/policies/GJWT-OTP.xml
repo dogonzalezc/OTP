@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GenerateJWT async="false" continueOnError="false" enabled="true" name="GJWT-OTP">
+    <DisplayName>GJWT-OTP</DisplayName>
+    <Algorithm>HS256</Algorithm>
+    <SecretKey>
+        <Value ref="private.privateKey"/>
+    </SecretKey>
+    <Subject>miCreditoUser</Subject>
+    <Issuer>urn://apigee-edge-JWT-policy-test</Issuer>
+    <Audience>audience1,audience2</Audience>
+    <ExpiresIn>4073066005ms</ExpiresIn>
+    <AdditionalClaims/>
+    <OutputVariable>jwt-variable</OutputVariable>
+</GenerateJWT>
