@@ -1,3 +1,8 @@
 Hola cara de bola
+<<<<<<< Updated upstream
 Hola cariverga
 huevos
+=======
+Hola buena tarde.
+Saludos cordiales.
+>>>>>>> Stashed changes
